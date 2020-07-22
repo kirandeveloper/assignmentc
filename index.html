@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/media.css" />
+		<script src="js/jquery.min.js">
+		</script>
+		<script>
+			$(document).ready(function(){
+			  $container = $("#container");
+				$divList = $("div");
+
+				$("#shuffle").on("click", function() {
+				  //copy and remove all divs
+				  $divCopy = $divList.clone(true);
+				  $("div").remove();
+
+				  while ($divCopy.length > 0) {
+				    //chose random index of div array
+				    var randomIndex = Math.floor(Math.random() * $divList.length);
+
+				    $container.append($divCopy.splice(randomIndex, 1));
+				  }
+				});
+
+				$("#sort").on("click", function() {
+					alert("sort");
+				});
+
+			});
+		</script>
+
+	</head>
+	<body>
+		<section class="row">
+			<article class="col">
+				<section id="container">
+				  <div class="bg1"> 1 </div>
+				  <div class="bg2"> 2 </div>
+				  <div class="bg3"> 3 </div>
+				  <div class="bg4"> 4 </div>
+				  <div class="bg4"> 5 </div>
+				  <div class="bg1"> 6 </div>
+				  <div class="bg2"> 7 </div>
+				  <div class="bg3"> 8 </div>
+				  <div class="bg4"> 9 </div>
+				</section>
+			</article>
+			<article class="col" id="button">
+				<button id="shuffle">Shuffle</button>
+				<button id="sort">Sort</button>
+			</article>
+		</section>
+	</body>
+</html>
